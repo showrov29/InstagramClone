@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text, ScrollView, Image} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  Image,
+  Pressable,
+} from 'react-native';
 import users from '../../../TempData/User';
 const Stories = () => {
   return (
@@ -7,16 +14,18 @@ const Stories = () => {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {users.map((user, index) => (
           <View key={index} className="flex flex-col items-center mr-1">
-            <Image
-              source={{uri: user.image}}
-              style={{
-                width: 70,
-                height: 70,
-                borderRadius: 50,
-                borderWidth: 3,
-                borderColor: '#ff8501',
-              }}
-            />
+            <Pressable>
+              <Image
+                source={{uri: user.image}}
+                style={{
+                  width: 70,
+                  height: 70,
+                  borderRadius: 50,
+                  borderWidth: 3,
+                  borderColor: '#ff8501',
+                }}
+              />
+            </Pressable>
             <Text className="text-xs mt-1">
               {user.name.length > 10
                 ? user.name.slice(0, 11) + '...'
